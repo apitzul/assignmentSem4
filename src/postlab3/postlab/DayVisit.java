@@ -20,19 +20,11 @@ public class DayVisit extends ZooTaiping {
     public double totalCharges(){
         
         double total=0.0;
-        int year=Integer.parseInt(super.getIcNumber().substring(0, 1));
-        int age=21-year;
-        if(age<0){
-            age=21+(100-year);
-        }
         
-        System.out.print("Age is "+age+" years old.");
-        
-        if(age<13)
-            total+=15.0;
-        else
+        if(category.equals("adult"))
             total+=25.0;
-        
+        else if(category.equals("child"))
+            total+=15.0;
         
         if(super.isGovServant()){
             total=total*0.85;   
@@ -43,7 +35,7 @@ public class DayVisit extends ZooTaiping {
 
     @Override
     public String toString() {
-        return "DayVisit{" + "category=" + category + '}';
+        return super.toString()+"DayVisit{" + "category=" + category + '}';
     }
     
     
